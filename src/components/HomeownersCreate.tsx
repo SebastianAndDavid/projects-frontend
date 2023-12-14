@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Homeowner.css";
 import { createHomeowner } from "../fetch-utils";
+import { useNavigate } from "react-router-dom";
 
 export default function HomeownersCreate() {
   const [formData, setFormData] = useState({
@@ -25,6 +26,7 @@ export default function HomeownersCreate() {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [zip, setZip] = useState("");
+  const navigate = useNavigate();
 
   const handleInputChange = (inputName: string, value: string) => {
     if (inputName == first_name) {
@@ -69,6 +71,7 @@ export default function HomeownersCreate() {
       state: "",
       zip_code: "",
     });
+    navigate("/homeowner-page");
   };
 
   return (
