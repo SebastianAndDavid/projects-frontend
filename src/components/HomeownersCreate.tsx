@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Homeowner.css";
+import { createHomeowner } from "../fetch-utils";
 
 export default function HomeownersCreate() {
   const [formData, setFormData] = useState({
@@ -53,12 +54,26 @@ export default function HomeownersCreate() {
     }));
   };
 
-  console.log("formData", formData);
+  const data = {
+    first_name: "dav",
+    last_name: "Smith",
+    email: "smith@dundermifflin.com",
+    apt: "123",
+    phone: "(971) 978-7725",
+    street: "123 Any St",
+    city: "Scranton",
+    state: "Pepe Sylvia",
+    zip_code: "46372",
+  };
+
+  const handleSubmit = async () => {
+    await createHomeowner(data);
+  };
 
   return (
     <div className="homeowner-create">
       <h2>Client Information</h2>
-      <form>
+      <form onSubmit={() => handleSubmit()}>
         <div className="input-container">
           <section className="col-1">
             First Name
