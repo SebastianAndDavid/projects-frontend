@@ -54,26 +54,27 @@ export default function HomeownersCreate() {
     }));
   };
 
-  const data = {
-    first_name: "dav",
-    last_name: "Smith",
-    email: "smith@dundermifflin.com",
-    apt: "123",
-    phone: "(971) 978-7725",
-    street: "123 Any St",
-    city: "Scranton",
-    state: "Pepe Sylvia",
-    zip_code: "46372",
-  };
-
-  const handleSubmit = async () => {
-    await createHomeowner(data);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    await createHomeowner(formData);
+    setFormData({
+      first_name: "",
+      last_name: "",
+      company: "",
+      email: "",
+      phone: "",
+      street: "",
+      apt: "",
+      city: "",
+      state: "",
+      zip_code: "",
+    });
   };
 
   return (
     <div className="homeowner-create">
       <h2>Client Information</h2>
-      <form onSubmit={() => handleSubmit()}>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <div className="input-container">
           <section className="col-1">
             First Name

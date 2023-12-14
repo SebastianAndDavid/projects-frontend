@@ -3,6 +3,7 @@ const getAllProjects = async () => {
   const data = await response.json();
   return data;
 };
+
 const getAllHomeowners = async () => {
   const response = await fetch("http://localhost:8000/homeowners/all");
   const data = await response.json();

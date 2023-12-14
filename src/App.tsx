@@ -1,16 +1,16 @@
-import { useEffect } from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
-import { getAllHomeowners, getAllProjects } from "./fetch-utils";
 import HomeownersCreate from "./components/HomeownersCreate";
 
 function App() {
-  useEffect(() => {
-    getAllProjects();
-    getAllHomeowners();
-  }, []);
   return (
     <div className="app">
-      <HomeownersCreate />
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomeownersCreate />} />
+          <Route path="homeowner-page" />
+        </Routes>
+      </Router>
     </div>
   );
 }
