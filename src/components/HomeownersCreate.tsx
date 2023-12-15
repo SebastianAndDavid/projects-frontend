@@ -26,6 +26,7 @@ export default function HomeownersCreate() {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [zip, setZip] = useState("");
+
   const navigate = useNavigate();
 
   const handleInputChange = (inputName: string, value: string) => {
