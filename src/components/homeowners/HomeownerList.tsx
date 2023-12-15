@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllHomeowners } from "../fetch-utils";
+import { getAllHomeowners } from "../../fetch-utils";
 import { HomeownerSelect } from "./homeowner.interface";
 
 export default function HomeownerList() {

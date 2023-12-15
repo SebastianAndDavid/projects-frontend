@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Homeowner.css";
-import { createHomeowner } from "../fetch-utils";
+import { createHomeowner } from "../../fetch-utils";
 import { useNavigate } from "react-router-dom";
 
 export default function HomeownersCreate() {
