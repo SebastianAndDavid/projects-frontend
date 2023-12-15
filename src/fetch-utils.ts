@@ -19,7 +19,20 @@ const createHomeowner = async (data: object) => {
     body: JSON.stringify(data),
   });
   const result = await response.json();
+  return result;
+};
+
+const updateHomeowner = async (id: number, data: object) => {
+  const response = await fetch(`http://localhost:8000/homeowners/${id}`, {
+    method: "Put",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  const result = await response.json();
   console.log("result", result);
   return result;
 };
-export { getAllProjects, getAllHomeowners, createHomeowner };
+
+export { getAllProjects, getAllHomeowners, createHomeowner, updateHomeowner };

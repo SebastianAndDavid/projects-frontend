@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Homeowner.css";
-import { createHomeowner } from "../../fetch-utils";
+import { createHomeowner, updateHomeowner } from "../../fetch-utils";
 import { useNavigate } from "react-router-dom";
 import { HomeownerCreate, HomeownerSelectProps } from "./homeowner.interface";
 
@@ -83,6 +83,16 @@ export default function HomeownersCreate({ owner }: HomeownerSelectProps) {
       }
     };
     handleEditMode();
+    const handleUpdateOwner = async () => {
+      if (owner) {
+        const res = await updateHomeowner(owner?.id, {
+          ...owner,
+          first_name: "Johnny",
+        });
+        console.log("res", res);
+      }
+    };
+    handleUpdateOwner();
   }, []);
 
   return (

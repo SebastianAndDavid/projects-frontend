@@ -28,5 +28,4 @@ export interface HomeownerSelect {
 
 export interface HomeownerSelectProps {
   owner?: HomeownerSelect;
-  didClickEdit?: boolean;
 }

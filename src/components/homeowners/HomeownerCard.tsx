@@ -16,7 +16,7 @@ export default function HomeownerCard({ owner }: HomeownerSelectProps) {
       )}
       {didClickEdit && (
         <div className={didClickEdit ? "edit-mode" : "hide-edit-mode"}>
-          <HomeownersCreate owner={owner} didClickEdit={didClickEdit} />
+          <HomeownersCreate owner={owner} />
         </div>
       )}
     </>
