@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Homeowner.css";
 import { createHomeowner } from "../../fetch-utils";
 import { useNavigate } from "react-router-dom";
+import { HomeownerCreate, HomeownerSelectProps } from "./homeowner.interface";
 
-export default function HomeownersCreate() {
-  const [formData, setFormData] = useState({
+export default function HomeownersCreate({ owner }: HomeownerSelectProps) {
+  const [formData, setFormData] = useState<HomeownerCreate>({
     first_name: "",
     last_name: "",
     company: "",
@@ -75,6 +76,15 @@ export default function HomeownersCreate() {
     navigate("/homeowner-page");
   };
 
+  useEffect(() => {
+    const handleEditMode = () => {
+      if (owner) {
+        setFormData(owner);
+      }
+    };
+    handleEditMode();
+  }, []);
+
   return (
     <div className="homeowner-create">
       <h2>Client Information</h2>
@@ -96,7 +106,7 @@ export default function HomeownersCreate() {
             Company
             <input
               type="text"
-              value={formData.company}
+              value={formData.company || ""}
               onChange={(e) => handleInputChange("company", e.target.value)}
             />
             Address Line 1
@@ -128,7 +138,7 @@ export default function HomeownersCreate() {
             Apartment #
             <input
               type="text"
-              value={formData.apt}
+              value={formData.apt || ""}
               onChange={(e) => handleInputChange("apt", e.target.value)}
             />
             State

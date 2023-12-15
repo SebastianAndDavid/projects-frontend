@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import HomeownersCreate from "./components/homeowners/HomeownersCreate";
 import HomeownerList from "./components/homeowners/HomeownerList";
-import ProjectCreate from "./components/ProjectCreate";
+import ProjectCreate from "./components/projects/ProjectCreate";
 
 function App() {
   return (
