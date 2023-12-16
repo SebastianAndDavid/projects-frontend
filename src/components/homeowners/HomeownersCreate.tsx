@@ -60,19 +60,38 @@ export default function HomeownersCreate({ owner }: HomeownerSelectProps) {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await createHomeowner(formData);
-    setFormData({
-      first_name: "",
-      last_name: "",
-      company: "",
-      email: "",
-      phone: "",
-      street: "",
-      apt: "",
-      city: "",
-      state: "",
-      zip_code: "",
-    });
+    if (formData.first_name == "") {
+      return alert("Please enter a client name");
+    }
+    if (owner) {
+      await updateHomeowner(owner?.id, formData);
+      setFormData({
+        first_name: "",
+        last_name: "",
+        company: "",
+        email: "",
+        phone: "",
+        street: "",
+        apt: "",
+        city: "",
+        state: "",
+        zip_code: "",
+      });
+    } else {
+      await createHomeowner(formData);
+      setFormData({
+        first_name: "",
+        last_name: "",
+        company: "",
+        email: "",
+        phone: "",
+        street: "",
+        apt: "",
+        city: "",
+        state: "",
+        zip_code: "",
+      });
+    }
     navigate("/homeowner-page");
   };
 
@@ -83,16 +102,6 @@ export default function HomeownersCreate({ owner }: HomeownerSelectProps) {
       }
     };
     handleEditMode();
-    const handleUpdateOwner = async () => {
-      if (owner) {
-        const res = await updateHomeowner(owner?.id, {
-          ...owner,
-          first_name: "Johnny",
-        });
-        console.log("res", res);
-      }
-    };
-    handleUpdateOwner();
   }, []);
 
   return (

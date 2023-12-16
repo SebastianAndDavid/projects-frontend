@@ -28,4 +28,5 @@ export interface HomeownerSelect {
 
 export interface HomeownerSelectProps {
   owner?: HomeownerSelect;
+  // setDidClickEdit: React.Dispatch<React.SetStateAction<boolean>>;
 }
