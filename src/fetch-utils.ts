@@ -10,6 +10,14 @@ const getAllHomeowners = async () => {
   return data;
 };
 
+const getAllProjectsByHomeownerId = async (id: number) => {
+  const response = await fetch(
+    `http://localhost:8000/projects/homeowners/${id}`
+  );
+  const result = await response.json();
+  return result;
+};
+
 const createHomeowner = async (data: object) => {
   const response = await fetch("http://localhost:8000/homeowners", {
     method: "Post",
@@ -22,7 +30,7 @@ const createHomeowner = async (data: object) => {
   return result;
 };
 
-const updateHomeowner = async (id: number, data: object) => {
+const updateHomeowner = async (id: string, data: object) => {
   const response = await fetch(`http://localhost:8000/homeowners/${id}`, {
     method: "Put",
     headers: {
@@ -53,4 +61,5 @@ export {
   createHomeowner,
   updateHomeowner,
   createProject,
+  getAllProjectsByHomeownerId,
 };
