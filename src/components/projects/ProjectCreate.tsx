@@ -13,7 +13,7 @@ export default function ProjectCreate() {
   const [apt, setApt] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
-  const [zip, setZip] = useState("");
+  const [zip_code, setZip] = useState("");
 
   useEffect(() => {
     const handleFetchAllHomeowners = async () => {
@@ -36,9 +36,9 @@ export default function ProjectCreate() {
       apt,
       city,
       state,
-      zip,
+      zip_code,
     };
-    console.log("project.zip", project.zip);
+    console.log("project.zip", project.zip_code);
     if (name) {
       await createProject(homeownerId, project);
     }
@@ -106,7 +106,7 @@ export default function ProjectCreate() {
             Zip
             <input
               type="text"
-              value={zip}
+              value={zip_code}
               onChange={(e) => setZip(e.target.value)}
             />
           </section>
