@@ -17,7 +17,6 @@ export default function HomeownerList() {
 
   return (
     <div className="list-container">
-      {/* {"Select owner(s) to start a new project"} */}
       {homeownersArray.map((owner) => {
         return (
           <div key={owner.id}>

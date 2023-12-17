@@ -35,4 +35,22 @@ const updateHomeowner = async (id: number, data: object) => {
   return result;
 };
 
-export { getAllProjects, getAllHomeowners, createHomeowner, updateHomeowner };
+const createProject = async (id: string, data: object) => {
+  const response = await fetch(`http://localhost:8000/projects/${id}`, {
+    method: "Post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  const result = await response.json();
+  return result;
+};
+
+export {
+  getAllProjects,
+  getAllHomeowners,
+  createHomeowner,
+  updateHomeowner,
+  createProject,
+};
