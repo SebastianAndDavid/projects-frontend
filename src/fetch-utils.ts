@@ -30,7 +30,7 @@ const createHomeowner = async (data: object) => {
   return result;
 };
 
-const updateHomeowner = async (id: string, data: object) => {
+const updateHomeowner = async (id: number, data: object) => {
   const response = await fetch(`http://localhost:8000/homeowners/${id}`, {
     method: "Put",
     headers: {
