@@ -43,14 +43,15 @@ const updateHomeowner = async (id: number, data: object) => {
   return result;
 };
 
-const createProject = async (id: string, data: object) => {
-  const response = await fetch(`http://localhost:8000/projects/${id}`, {
+const createProject = async (data: object) => {
+  const response = await fetch("http://localhost:8000/projects", {
     method: "Post",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
   });
+  console.log("response.body", response.body);
   const result = await response.json();
   return result;
 };

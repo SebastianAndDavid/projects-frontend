@@ -16,6 +16,7 @@ export default function HomeownerCard({ owner }: HomeownerSelectProps) {
     const handleFetchProjectsByHomeowner = async () => {
       if (owner) {
         const data = await getAllProjectsByHomeownerId(owner.id);
+        console.log("data", data);
         setProjectsArray(data);
       }
     };
@@ -31,7 +32,9 @@ export default function HomeownerCard({ owner }: HomeownerSelectProps) {
             return <div>{project.name}</div>;
           })}
           <button onClick={() => setDidClickEdit(true)}>Edit</button>
-          <button onClick={() => navigate("/homeowner/33")}>Details</button>
+          <button onClick={() => navigate(`/homeowner/${owner.id}`)}>
+            Details
+          </button>
         </div>
       )}
       {didClickEdit && (

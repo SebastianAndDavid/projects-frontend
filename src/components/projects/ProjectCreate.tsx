@@ -5,7 +5,7 @@ import { HomeownerSelect } from "../homeowners/homeowner.interface";
 
 export default function ProjectCreate() {
   const [homeownerArray, setHomeownerArray] = useState<HomeownerSelect[]>([]);
-  const [homeownerId, setHomeownerId] = useState("");
+  const [homeownerId, setHomeownerId] = useState<string[]>([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [deposit, setDeposit] = useState("");
@@ -14,6 +14,7 @@ export default function ProjectCreate() {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [zip_code, setZip] = useState("");
+  const [homeownerCountArray, setHomeownerCountArray] = useState(["1"]);
 
   useEffect(() => {
     const handleFetchAllHomeowners = async () => {
@@ -24,7 +25,6 @@ export default function ProjectCreate() {
     };
     handleFetchAllHomeowners();
   }, []);
-  console.log("homeownerId", homeownerId);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -38,9 +38,10 @@ export default function ProjectCreate() {
       state,
       zip_code,
     };
-    console.log("project.zip", project.zip_code);
     if (name) {
-      await createProject(homeownerId, project);
+      console.log("project", project);
+      console.log("homeownerId", homeownerId);
+      await createProject({ project, homeownerId });
     }
   };
 
@@ -67,16 +68,38 @@ export default function ProjectCreate() {
               value={deposit}
               onChange={(e) => setDeposit(e.target.value)}
             />
-            Homeowner
-            <select onChange={(e) => setHomeownerId(e.target.value)}>
-              {homeownerArray.map((owner) => {
-                return (
-                  <option value={owner.id} key={owner.id}>
-                    {owner.first_name}
-                  </option>
-                );
-              })}
+            # of Homeowners
+            <select
+              typeof="number"
+              onChange={(e) =>
+                setHomeownerCountArray((prev) => [...prev, e.target.value])
+              }
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
             </select>
+            {homeownerCountArray.map((count) => {
+              return (
+                <>
+                  <div>Homeowner {count}</div>
+                  <select
+                    onChange={(e) =>
+                      setHomeownerId((prev) => [...prev, e.target.value])
+                    }
+                  >
+                    {homeownerArray.map((owner) => {
+                      return (
+                        <option value={owner.id} key={owner.id}>
+                          {owner.first_name}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </>
+              );
+            })}
           </section>
           <section className="col-2">
             Address Line 1
