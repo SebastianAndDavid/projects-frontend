@@ -14,7 +14,6 @@ export default function HomeownerDetail() {
   const [projects, setProjects] = useState();
   const [toggleProjectCreate, setToggleProjectCreate] = useState(false);
   const { id } = useParams();
-
   useEffect(() => {
     const handleFetchHomeownerById = async () => {
       if (id) {
@@ -25,14 +24,14 @@ export default function HomeownerDetail() {
 
     handleFetchHomeownerById();
 
-    const handleFetchProjectsByHomeownerBy = async () => {
+    const handleFetchProjectsByHomeownerId = async () => {
       if (id) {
         const data = await getAllProjectsByHomeownerId(Number(id));
         setProjects(data);
       }
     };
 
-    handleFetchProjectsByHomeownerBy();
+    handleFetchProjectsByHomeownerId();
   }, []);
 
   return (

@@ -2,13 +2,10 @@ import { useEffect, useState } from "react";
 import { createProject, getAllHomeowners } from "../../fetch-utils";
 import { HomeownerSelect } from "../homeowners/homeowner.interface";
 import "./Projects.css";
-import { useParams } from "react-router-dom";
 
 export default function ProjectCreate() {
-  const { id } = useParams();
-
   const [homeownerArray, setHomeownerArray] = useState<HomeownerSelect[]>([]);
-  const [homeownerId, setHomeownerId] = useState<string[]>([id]);
+  const [homeownerId, setHomeownerId] = useState<string[]>([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [deposit, setDeposit] = useState("");
@@ -54,6 +51,11 @@ export default function ProjectCreate() {
     }
   };
 
+  const handleNumberOfHomeownersSelect = (value: string) => {
+    const newArray = Array(Number(value)).fill(null);
+    setHomeownerCountArray(newArray);
+  };
+
   return (
     <div>
       <form className="project-form" onSubmit={(e) => handleSubmit(e)}>
@@ -80,9 +82,7 @@ export default function ProjectCreate() {
             # of Homeowners
             <select
               typeof="number"
-              onChange={(e) =>
-                setHomeownerCountArray([...homeownerCountArray, e.target.value])
-              }
+              onChange={(e) => handleNumberOfHomeownersSelect(e.target.value)}
             >
               {homeownerArray.map((owner, index) => {
                 return (
@@ -100,6 +100,7 @@ export default function ProjectCreate() {
                     onChange={(e) => handleSelect(e.target.value)}
                     key={count + 1}
                   >
+                    <option value=""></option>
                     {homeownerArray.map((owner) => {
                       return (
                         <option
