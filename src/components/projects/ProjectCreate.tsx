@@ -14,7 +14,11 @@ export default function ProjectCreate() {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [zip_code, setZip] = useState("");
-  const [homeownerCountArray, setHomeownerCountArray] = useState(["1"]);
+  const [homeownerCountArray, setHomeownerCountArray] = useState<string[]>([
+    "1",
+  ]);
+  console.log("homeownerArray", homeownerArray);
+  console.log("  homeownerCountArray", homeownerCountArray);
 
   useEffect(() => {
     const handleFetchAllHomeowners = async () => {
@@ -39,9 +43,18 @@ export default function ProjectCreate() {
       zip_code,
     };
     if (name) {
-      console.log("project", project);
-      console.log("homeownerId", homeownerId);
       await createProject({ project, homeownerId });
+    }
+  };
+
+  // const handleSelectHomeownerCount = (value: string) => {
+  //   const newArray = Array(Number(value)).fill(null);
+  //   setHomeownerCountArray(newArray);
+  // };
+
+  const handleSelect = (value: string) => {
+    if (!homeownerId.includes(value)) {
+      setHomeownerId([...homeownerId, value]);
     }
   };
 
@@ -72,26 +85,30 @@ export default function ProjectCreate() {
             <select
               typeof="number"
               onChange={(e) =>
-                setHomeownerCountArray((prev) => [...prev, e.target.value])
+                setHomeownerCountArray([...homeownerCountArray, e.target.value])
               }
             >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
+              {homeownerArray.map((owner, index) => {
+                return (
+                  <option key={owner.id} value={index + 1}>
+                    {index + 1}
+                  </option>
+                );
+              })}
             </select>
             {homeownerCountArray.map((count) => {
+              console.log("count", count);
               return (
                 <>
-                  <div>Homeowner {count}</div>
-                  <select
-                    onChange={(e) =>
-                      setHomeownerId((prev) => [...prev, e.target.value])
-                    }
-                  >
+                  <div>Homeowner</div>
+                  <select onChange={(e) => handleSelect(e.target.value)}>
                     {homeownerArray.map((owner) => {
                       return (
-                        <option value={owner.id} key={owner.id}>
+                        <option
+                          value={owner.id}
+                          key={owner.id}
+                          disabled={homeownerId.includes(String(owner.id))}
+                        >
                           {owner.first_name}
                         </option>
                       );

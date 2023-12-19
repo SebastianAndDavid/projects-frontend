@@ -16,7 +16,6 @@ export default function HomeownerCard({ owner }: HomeownerSelectProps) {
     const handleFetchProjectsByHomeowner = async () => {
       if (owner) {
         const data = await getAllProjectsByHomeownerId(owner.id);
-        console.log("data", data);
         setProjectsArray(data);
       }
     };
