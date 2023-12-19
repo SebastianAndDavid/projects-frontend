@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
-import "./Projects.css";
 import { createProject, getAllHomeowners } from "../../fetch-utils";
 import { HomeownerSelect } from "../homeowners/homeowner.interface";
+import "./Projects.css";
+import { useParams } from "react-router-dom";
 
 export default function ProjectCreate() {
+  const { id } = useParams();
+
   const [homeownerArray, setHomeownerArray] = useState<HomeownerSelect[]>([]);
-  const [homeownerId, setHomeownerId] = useState<string[]>([]);
+  const [homeownerId, setHomeownerId] = useState<string[]>([id]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [deposit, setDeposit] = useState("");
@@ -17,8 +20,6 @@ export default function ProjectCreate() {
   const [homeownerCountArray, setHomeownerCountArray] = useState<string[]>([
     "1",
   ]);
-  console.log("homeownerArray", homeownerArray);
-  console.log("  homeownerCountArray", homeownerCountArray);
 
   useEffect(() => {
     const handleFetchAllHomeowners = async () => {
@@ -47,11 +48,6 @@ export default function ProjectCreate() {
     }
   };
 
-  // const handleSelectHomeownerCount = (value: string) => {
-  //   const newArray = Array(Number(value)).fill(null);
-  //   setHomeownerCountArray(newArray);
-  // };
-
   const handleSelect = (value: string) => {
     if (!homeownerId.includes(value)) {
       setHomeownerId([...homeownerId, value]);
@@ -60,9 +56,9 @@ export default function ProjectCreate() {
 
   return (
     <div>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <div className="input-container">
-          <section className="col-1">
+      <form className="project-form" onSubmit={(e) => handleSubmit(e)}>
+        <div className="project-input-container">
+          <section className="project-col-1">
             Project Name
             <input
               type="text"
@@ -97,11 +93,13 @@ export default function ProjectCreate() {
               })}
             </select>
             {homeownerCountArray.map((count) => {
-              console.log("count", count);
               return (
                 <>
                   <div>Homeowner</div>
-                  <select onChange={(e) => handleSelect(e.target.value)}>
+                  <select
+                    onChange={(e) => handleSelect(e.target.value)}
+                    key={count + 1}
+                  >
                     {homeownerArray.map((owner) => {
                       return (
                         <option
@@ -118,7 +116,7 @@ export default function ProjectCreate() {
               );
             })}
           </section>
-          <section className="col-2">
+          <section className="project-col-2">
             Address Line 1
             <input
               type="text"

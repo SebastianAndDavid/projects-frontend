@@ -4,7 +4,12 @@ import { createHomeowner, updateHomeowner } from "../../fetch-utils";
 import { useNavigate } from "react-router-dom";
 import { HomeownerCreate, HomeownerSelectProps } from "./homeowner.interface";
 
-export default function HomeownersCreate({ owner }: HomeownerSelectProps) {
+export default function HomeownersCreate({
+  owner,
+  setDidClickEdit,
+}: HomeownerSelectProps & {
+  setDidClickEdit: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   const [formData, setFormData] = useState<HomeownerCreate>({
     first_name: "",
     last_name: "",
@@ -77,6 +82,7 @@ export default function HomeownersCreate({ owner }: HomeownerSelectProps) {
         state: "",
         zip_code: "",
       });
+      setDidClickEdit(false);
     } else {
       await createHomeowner(formData);
       setFormData({
@@ -107,7 +113,7 @@ export default function HomeownersCreate({ owner }: HomeownerSelectProps) {
   return (
     <div className="homeowner-create">
       <h2>Client Information</h2>
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <form className="homeowner-form" onSubmit={(e) => handleSubmit(e)}>
         <div className="input-container">
           <section className="col-1">
             First Name
@@ -174,7 +180,10 @@ export default function HomeownersCreate({ owner }: HomeownerSelectProps) {
             />
           </section>
         </div>
-        <button>Submit</button>
+        <div className="button-container">
+          <button>Submit</button>
+          <button onClick={() => setDidClickEdit(false)}>Cancel</button>
+        </div>
       </form>
     </div>
   );

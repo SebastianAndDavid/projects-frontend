@@ -1,0 +1,18 @@
+.project-input-container {
+  display: flex;
+  justify-content: center;
+}
+
+.project-col-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 1em;
+}
+
+.project-col-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 1em;
+}

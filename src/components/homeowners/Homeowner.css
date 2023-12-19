@@ -1,4 +1,4 @@
-form {
+.homeowner-form {
   box-shadow: 0px 0px 5px 0px rgba(128, 66, 70, 1);
   border-radius: 5%;
 }
@@ -36,4 +36,46 @@ form {
 
 .edit-mode {
   display: block;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.homeowner-detail-grid {
+  /* display: grid;
+  grid-template-rows: 20% 40% 40%; */
+  width: 60vw;
+  height: 80vh;
+}
+
+.homeowner-detail-grid div {
+  margin: 0.25em;
+}
+
+.greeting {
+  border-radius: 5px;
+  border-top: 8px solid rgb(134, 21, 134);
+  box-shadow: 0px 0px 5px 0px rgba(128, 66, 70, 1);
+}
+
+.personal-info {
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 0px rgba(128, 66, 70, 1);
+}
+
+.personal-info-grid {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+}
+
+.personal-info-grid div {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-info {
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 0px rgba(128, 66, 70, 1);
 }
