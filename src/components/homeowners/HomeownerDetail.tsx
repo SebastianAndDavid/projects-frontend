@@ -6,14 +6,17 @@ import {
 } from "../../fetch-utils";
 import { HomeownerSelect } from "./homeowner.interface";
 import ProjectCreate from "../projects/ProjectCreate";
+import { ProjectSelect } from "../projects/projects.interface";
 
 export default function HomeownerDetail() {
   const [ownerDetails, setOwnerDetails] = useState<
     HomeownerSelect | undefined
   >();
-  const [projects, setProjects] = useState();
+  const [projects, setProjects] = useState<ProjectSelect[]>([]);
   const [toggleProjectCreate, setToggleProjectCreate] = useState(false);
+
   const { id } = useParams();
+
   useEffect(() => {
     const handleFetchHomeownerById = async () => {
       if (id) {
@@ -66,7 +69,19 @@ export default function HomeownerDetail() {
       </div>
       <div className="project-info">
         <div>
-          <h3>No projects yet</h3>
+          {projects ? (
+            <div className="project-display-container">
+              {projects.map((project) => {
+                return (
+                  <div key={project.id} className="project-card">
+                    {project.name}
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <h3>No projects yet</h3>
+          )}
           {toggleProjectCreate && <ProjectCreate />}
           {toggleProjectCreate ? (
             <button onClick={() => setToggleProjectCreate(false)}>
