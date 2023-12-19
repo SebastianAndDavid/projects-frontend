@@ -5,7 +5,7 @@ import { HomeownerSelect } from "../homeowners/homeowner.interface";
 
 export default function ProjectCreate() {
   const [homeownerArray, setHomeownerArray] = useState<HomeownerSelect[]>([]);
-  const [homeownerId, setHomeownerId] = useState("");
+  const [homeownerId, setHomeownerId] = useState<string[]>([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [deposit, setDeposit] = useState("");
@@ -14,6 +14,11 @@ export default function ProjectCreate() {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [zip_code, setZip] = useState("");
+  const [homeownerCountArray, setHomeownerCountArray] = useState<string[]>([
+    "1",
+  ]);
+  console.log("homeownerArray", homeownerArray);
+  console.log("  homeownerCountArray", homeownerCountArray);
 
   useEffect(() => {
     const handleFetchAllHomeowners = async () => {
@@ -24,7 +29,6 @@ export default function ProjectCreate() {
     };
     handleFetchAllHomeowners();
   }, []);
-  console.log("homeownerId", homeownerId);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -38,9 +42,19 @@ export default function ProjectCreate() {
       state,
       zip_code,
     };
-    console.log("project.zip", project.zip_code);
     if (name) {
-      await createProject(homeownerId, project);
+      await createProject({ project, homeownerId });
+    }
+  };
+
+  // const handleSelectHomeownerCount = (value: string) => {
+  //   const newArray = Array(Number(value)).fill(null);
+  //   setHomeownerCountArray(newArray);
+  // };
+
+  const handleSelect = (value: string) => {
+    if (!homeownerId.includes(value)) {
+      setHomeownerId([...homeownerId, value]);
     }
   };
 
@@ -67,16 +81,42 @@ export default function ProjectCreate() {
               value={deposit}
               onChange={(e) => setDeposit(e.target.value)}
             />
-            Homeowner
-            <select onChange={(e) => setHomeownerId(e.target.value)}>
-              {homeownerArray.map((owner) => {
+            # of Homeowners
+            <select
+              typeof="number"
+              onChange={(e) =>
+                setHomeownerCountArray([...homeownerCountArray, e.target.value])
+              }
+            >
+              {homeownerArray.map((owner, index) => {
                 return (
-                  <option value={owner.id} key={owner.id}>
-                    {owner.first_name}
+                  <option key={owner.id} value={index + 1}>
+                    {index + 1}
                   </option>
                 );
               })}
             </select>
+            {homeownerCountArray.map((count) => {
+              console.log("count", count);
+              return (
+                <>
+                  <div>Homeowner</div>
+                  <select onChange={(e) => handleSelect(e.target.value)}>
+                    {homeownerArray.map((owner) => {
+                      return (
+                        <option
+                          value={owner.id}
+                          key={owner.id}
+                          disabled={homeownerId.includes(String(owner.id))}
+                        >
+                          {owner.first_name}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </>
+              );
+            })}
           </section>
           <section className="col-2">
             Address Line 1

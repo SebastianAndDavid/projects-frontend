@@ -4,10 +4,14 @@ import "./Homeowner.css";
 import HomeownersCreate from "./HomeownersCreate";
 import { getAllProjectsByHomeownerId } from "../../fetch-utils";
 import { ProjectSelect } from "../projects/projects.interface";
+import { useNavigate } from "react-router-dom";
 
 export default function HomeownerCard({ owner }: HomeownerSelectProps) {
   const [didClickEdit, setDidClickEdit] = useState(false);
   const [projectsArray, setProjectsArray] = useState<ProjectSelect[]>([]);
+
+  const navigate = useNavigate();
+
   useEffect(() => {
     const handleFetchProjectsByHomeowner = async () => {
       if (owner) {
@@ -27,6 +31,9 @@ export default function HomeownerCard({ owner }: HomeownerSelectProps) {
             return <div>{project.name}</div>;
           })}
           <button onClick={() => setDidClickEdit(true)}>Edit</button>
+          <button onClick={() => navigate(`/homeowner/${owner.id}`)}>
+            Details
+          </button>
         </div>
       )}
       {didClickEdit && (
