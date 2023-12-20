@@ -4,11 +4,13 @@ import HomeownersCreate from "./components/homeowners/HomeownersCreate";
 import HomeownerList from "./components/homeowners/HomeownerList";
 import ProjectCreate from "./components/projects/ProjectCreate";
 import HomeownerDetail from "./components/homeowners/HomeownerDetail";
+import Header from "./components/header/Header";
 
 function App() {
   return (
     <>
       <Router>
+        <Header />
         <Routes>
           <Route path="/" element={<HomeownersCreate />} />
           <Route path="/homeowner-page" element={<HomeownerList />} />

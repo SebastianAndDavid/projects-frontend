@@ -28,7 +28,7 @@ export default function HomeownerCard({ owner }: HomeownerSelectProps) {
           <p>First Name: {owner.first_name}</p>
           <p>Last Name: {owner.last_name}</p>
           {projectsArray.map((project) => {
-            return <div>{project.name}</div>;
+            return <div key={project.id}>{project.name}</div>;
           })}
           <button onClick={() => setDidClickEdit(true)}>Edit</button>
           <button onClick={() => navigate(`/homeowner/${owner.id}`)}>
@@ -38,7 +38,7 @@ export default function HomeownerCard({ owner }: HomeownerSelectProps) {
       )}
       {didClickEdit && (
         <div className={didClickEdit ? "edit-mode" : "hide-edit-mode"}>
-          <HomeownersCreate owner={owner} />
+          <HomeownersCreate owner={owner} setDidClickEdit={setDidClickEdit} />
         </div>
       )}
     </>
