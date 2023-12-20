@@ -51,7 +51,9 @@ const createProject = async (data: object) => {
     },
     body: JSON.stringify(data),
   });
+  console.log("response", response);
   const result = await response.json();
+  console.log("result", result);
   return result;
 };
 

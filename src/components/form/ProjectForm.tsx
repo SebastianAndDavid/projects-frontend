@@ -1,11 +1,15 @@
+import { useState } from "react";
 import { createProject } from "../../fetch-utils";
 import { ProjectFormProps } from "../projects/projects.interface";
+import SelectInput from "./SelectInput";
 import TextInput from "./TextInput";
 
 export default function ProjectForm({
   projectFormData,
   setProjectFormData,
 }: ProjectFormProps) {
+  const [clientID, setClientID] = useState<string[]>([]);
+
   const handleFormChange = (key: string) => (value: string) => {
     setProjectFormData((prev) => ({
       ...prev,
@@ -21,6 +25,15 @@ export default function ProjectForm({
             <TextInput
               key={key}
               label="Name"
+              value={value}
+              onChange={handleFormChange(key)}
+            />
+          );
+        case "description":
+          return (
+            <TextInput
+              key={key}
+              label="Description"
               value={value}
               onChange={handleFormChange(key)}
             />
@@ -76,12 +89,13 @@ export default function ProjectForm({
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await createProject(projectFormData);
+    await createProject({ projectFormData, clientID });
   };
 
   return (
     <div>
       <form onSubmit={(e) => handleSubmit(e)}>
+        <SelectInput setClientID={setClientID} />
         {renderInputs()}
         <button>Submit</button>
       </form>

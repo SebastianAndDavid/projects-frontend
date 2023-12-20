@@ -12,7 +12,7 @@ export interface Project {
 export interface ProjectFormProps {
   projectFormData: {
     name: string;
-    // description: string;
+    description: string;
     deposit: string;
     street: string;
     // apt: string;
@@ -23,7 +23,7 @@ export interface ProjectFormProps {
   setProjectFormData: React.Dispatch<
     React.SetStateAction<{
       name: string;
-      // description: string;
+      description: string;
       deposit: string;
       street: string;
       // apt: string;

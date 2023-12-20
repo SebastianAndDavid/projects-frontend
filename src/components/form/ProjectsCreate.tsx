@@ -4,7 +4,7 @@ import ProjectForm from "./ProjectForm";
 export default function ProjectsCreate() {
   const [projectFormData, setProjectFormData] = useState({
     name: "",
-    // description: "",
+    description: "",
     deposit: "",
     street: "",
     // apt: "",
