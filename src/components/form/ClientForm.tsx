@@ -1,3 +1,4 @@
+import { createHomeowner } from "../../fetch-utils";
 import { ClientFormProps } from "../homeowners/homeowner.interface";
 import TextInput from "./TextInput";
 
@@ -91,9 +92,14 @@ export default function ClientForm({
     });
   };
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    await createHomeowner(clientFormData);
+  };
+
   return (
     <div>
-      <form>
+      <form onSubmit={(e) => handleSubmit(e)}>
         {renderInputs()}
         <button>Submit</button>
       </form>

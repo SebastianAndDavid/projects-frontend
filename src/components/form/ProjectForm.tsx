@@ -1,3 +1,4 @@
+import { createProject } from "../../fetch-utils";
 import { ProjectFormProps } from "../projects/projects.interface";
 import TextInput from "./TextInput";
 
@@ -73,9 +74,14 @@ export default function ProjectForm({
     });
   };
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    await createProject(projectFormData);
+  };
+
   return (
     <div>
-      <form>
+      <form onSubmit={(e) => handleSubmit(e)}>
         {renderInputs()}
         <button>Submit</button>
       </form>
