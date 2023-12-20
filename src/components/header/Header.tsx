@@ -17,7 +17,7 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link to="/project-create" className="primary-nav-item">
+            <Link to="/form" className="primary-nav-item">
               Projects
             </Link>
           </li>
