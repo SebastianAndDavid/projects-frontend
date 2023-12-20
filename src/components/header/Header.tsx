@@ -12,12 +12,12 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link to="/homeowner-page" className="primary-nav-item">
+            <Link to="/client-form" className="primary-nav-item">
               Clients
             </Link>
           </li>
           <li>
-            <Link to="/form" className="primary-nav-item">
+            <Link to="/project-form" className="primary-nav-item">
               Projects
             </Link>
           </li>

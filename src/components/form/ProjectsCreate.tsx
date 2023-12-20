@@ -1,14 +1,23 @@
 import { useState } from "react";
-import Form from "./Form";
+import ProjectForm from "./ProjectForm";
 
 export default function ProjectsCreate() {
-  const [formData, setFormData] = useState({
+  const [projectFormData, setProjectFormData] = useState({
     name: "",
-    description: "",
+    // description: "",
+    deposit: "",
+    street: "",
+    // apt: "",
+    city: "",
+    state: "",
+    zip_code: "",
   });
   return (
     <div>
-      <Form formData={formData} setFormData={setFormData} />
+      <ProjectForm
+        projectFormData={projectFormData}
+        setProjectFormData={setProjectFormData}
+      />
     </div>
   );
 }
