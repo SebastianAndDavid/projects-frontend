@@ -15,7 +15,6 @@ const getAllProjectsByHomeownerId = async (id: number) => {
     `http://localhost:8000/projects/homeowners/${id}`
   );
   const result = await response.json();
-  console.log("result", result);
   return result;
 };
 
