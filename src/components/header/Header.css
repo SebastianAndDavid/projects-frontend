@@ -1,0 +1,41 @@
+@media (min-width: 768px) {
+  header {
+    background-color: #57937f;
+  }
+  .main-nav {
+    margin-left: 343px;
+    margin-right: 343px;
+    display: flex;
+    justify-content: space-between;
+    height: 48px;
+    padding: 0 16px;
+    position: static;
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    padding-left: 8px;
+    padding-right: 8px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  a:hover {
+    color: white;
+    background-color: #6e9f8f;
+  }
+
+  .primary-nav-item {
+    font-size: 15px;
+    font-weight: 500;
+  }
+}
