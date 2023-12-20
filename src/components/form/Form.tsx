@@ -1,7 +1,11 @@
-import { useProjects } from "../../context/projectsContext";
+// import { useProjects } from "../../context/projectsContext";
 
 export default function Form() {
-  const [projectsCon] = useProjects();
-  console.log("projectsCon", projectsCon);
-  return <div>Form</div>;
+  //   const [projects] = useProjects();
+
+  return (
+    <form>
+      <input type="text" />
+    </form>
+  );
 }

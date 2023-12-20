@@ -3,8 +3,8 @@ import { getAllProjects } from "../fetch-utils";
 import { ProjectsContextType } from "./projectsContext.interface";
 
 const ProjectsContext = createContext<ProjectsContextType>({
-  projectsCon: [],
-  setProjectsCon: () => {},
+  projects: [],
+  setProjects: () => {},
 });
 
 export default function ProjectsProvider({
@@ -12,19 +12,19 @@ export default function ProjectsProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [projectsCon, setProjectsCon] = useState([]);
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     const handleGetAllProjects = async () => {
       const response = await getAllProjects();
-      setProjectsCon(response);
+      setProjects(response);
     };
     handleGetAllProjects();
   }, []);
 
   const stateAndSetters = {
-    projectsCon,
-    setProjectsCon,
+    projects,
+    setProjects,
   };
 
   return (
@@ -35,6 +35,6 @@ export default function ProjectsProvider({
 }
 
 export function useProjects() {
-  const { projectsCon, setProjectsCon } = useContext(ProjectsContext);
-  return [projectsCon, setProjectsCon] as const;
+  const { projects, setProjects } = useContext(ProjectsContext);
+  return [projects, setProjects] as const;
 }
