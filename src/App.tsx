@@ -28,6 +28,10 @@ function App() {
               <Route path="/project-create-page" element={<ProjectsCreate />} />
               <Route path="/client-page" element={<ClientPage />} />
               <Route path="/client-create-page" element={<ClientCreate />} />
+              <Route
+                path="/client-create-page/:id"
+                element={<ClientCreate />}
+              />
             </Routes>
           </ClientProvider>
         </ProjectsProvider>
