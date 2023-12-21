@@ -39,6 +39,9 @@ export default function ProjectPage() {
           </div>
         </div>
         <div className="pp-list-contents">
+          <div className="pp-list-contents-header">
+            <div className="pp-list-contents-header-text">Client</div>
+          </div>
           {clientArray.map((client) => {
             return <ProjectCard key={client.id} client={client} />;
           })}

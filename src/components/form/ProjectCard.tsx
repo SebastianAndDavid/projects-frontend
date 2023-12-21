@@ -16,5 +16,18 @@ export default function ProjectCard({ client }: ProjectCardProps) {
     handleFetchProject();
   }, []);
 
-  return <div>{client.first_name}</div>;
+  return (
+    <div className="project-card">
+      <div className="project-card-header">
+        <div className="project-card-client">{client.first_name}</div>
+      </div>
+      {projectsArray.map((project) => {
+        return (
+          <div className="project-card-details-container" key={project.id}>
+            <div className="project-card-details">{project.name}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
 }
