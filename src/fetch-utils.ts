@@ -38,6 +38,7 @@ const updateHomeowner = async (id: number, data: object) => {
     },
     body: JSON.stringify(data),
   });
+  console.log("response", response);
   const result = await response.json();
   return result;
 };

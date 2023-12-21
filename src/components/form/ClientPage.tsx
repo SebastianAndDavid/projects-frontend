@@ -24,7 +24,7 @@ export default function ClientPage() {
       </div>
       <ul className="client-list-container">
         {clients.map((client) => {
-          return <ClientCard client={client} />;
+          return <ClientCard client={client} key={client.id} />;
         })}
       </ul>
     </div>

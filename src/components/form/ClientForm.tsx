@@ -1,8 +1,12 @@
-import { createHomeowner, getHomeownerById } from "../../fetch-utils";
+import {
+  createHomeowner,
+  getHomeownerById,
+  updateHomeowner,
+} from "../../fetch-utils";
 import { ClientFormProps } from "../homeowners/homeowner.interface";
 import TextInput from "./TextInput";
 import "./Form.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 
 export default function ClientForm({
@@ -10,6 +14,7 @@ export default function ClientForm({
   setClientFormData,
 }: ClientFormProps) {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleFetchClientByID = async () => {
@@ -109,7 +114,12 @@ export default function ClientForm({
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await createHomeowner(clientFormData);
+    if (id) {
+      await updateHomeowner(Number(id), clientFormData);
+    } else {
+      await createHomeowner(clientFormData);
+    }
+    navigate("/client-page");
   };
 
   return (
