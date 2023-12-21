@@ -159,7 +159,7 @@ img {
   display: flex;
   flex-direction: column;
   font-family: "Open Sans", sans-serif;
-  max-width: 768px;
+  max-width: 1216px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 16px;
@@ -189,7 +189,7 @@ img {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 768px;
+  max-width: 1216px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 16px;
@@ -206,7 +206,20 @@ img {
   margin-bottom: 10px;
 }
 
+.project-list-page {
+}
+
+.pp-list-main {
+  max-width: 1216px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 32px;
+}
+
 .pp-list-h1 {
+  display: flex;
   font-size: 30px;
   font-weight: 500;
   line-height: 1.25;
@@ -215,10 +228,16 @@ img {
   margin-bottom: 10px;
 }
 
+.pp-action-bar {
+  background-color: rgb(243, 243, 243);
+}
+
 .pp-actions-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1216px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 16px;
-  background-color: rgb(243, 243, 243);
 }

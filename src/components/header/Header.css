@@ -7,8 +7,9 @@
   }
 
   .main-nav {
-    margin-left: 343px;
-    margin-right: 343px;
+    max-width: 1216px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     justify-content: space-between;
     /* width: 100%; */

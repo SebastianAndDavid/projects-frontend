@@ -1,3 +1,5 @@
+import { HomeownerSelect } from "../homeowners/homeowner.interface";
+
 export interface Project {
   name: string;
   description: string | undefined | null;
@@ -37,4 +39,8 @@ export interface ProjectFormProps {
 export interface ProjectSelect extends Project {
   id: number;
   createdAt: Date;
+}
+
+export interface ProjectCardProps {
+  client: HomeownerSelect;
 }

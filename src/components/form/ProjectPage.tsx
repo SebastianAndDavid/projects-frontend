@@ -1,7 +1,22 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getAllHomeowners } from "../../fetch-utils";
+import ProjectCard from "./ProjectCard";
+import { HomeownerSelect } from "../homeowners/homeowner.interface";
 
 export default function ProjectPage() {
+  const [clientArray, setClientArray] = useState<HomeownerSelect[]>([]);
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleFetchAllClients = async () => {
+      const data = await getAllHomeowners();
+      setClientArray(data);
+    };
+    handleFetchAllClients();
+  }, []);
+
   return (
     <div className="project-list-page">
       <div className="pp-action-bar">
@@ -20,17 +35,14 @@ export default function ProjectPage() {
         <div className="pp-list-main-header">
           <div>
             <h1 className="pp-list-h1">Projects</h1>
-            <div className="pp-list-header-actions">
-              <div>
-                <select>Active projects</select>
-              </div>
-              <div>
-                <select>Filter by client</select>
-              </div>
-            </div>
+            <div className="pp-list-header-actions"></div>
           </div>
         </div>
-        <div className="pp-list-contents"></div>
+        <div className="pp-list-contents">
+          {clientArray.map((client) => {
+            return <ProjectCard key={client.id} client={client} />;
+          })}
+        </div>
       </div>
     </div>
   );
