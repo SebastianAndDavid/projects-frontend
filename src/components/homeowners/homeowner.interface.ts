@@ -59,3 +59,7 @@ export interface HomeownerSelectProps {
   owner?: HomeownerSelect;
   // setDidClickEdit: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
+export interface ClientCardProps {
+  client: HomeownerSelect;
+}

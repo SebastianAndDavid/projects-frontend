@@ -3,6 +3,7 @@ import { getAllHomeowners } from "../../fetch-utils";
 import { HomeownerSelect } from "../homeowners/homeowner.interface";
 import "./Form.css";
 import { useNavigate } from "react-router-dom";
+import ClientCard from "./ClientCard";
 
 export default function ClientPage() {
   const [clientsArray, setClientsArray] = useState<HomeownerSelect[]>([]);
@@ -34,19 +35,7 @@ export default function ClientPage() {
       </div>
       <ul className="client-list-container">
         {clientsArray.map((client) => {
-          return (
-            <li className="client-card-row">
-              <div className="cc-contents">
-                <div className="cc-col-1">
-                  <button>Edit</button>
-                  <strong>{client.first_name}</strong>
-                </div>
-                <div className="cc-col-2">
-                  <button>Add contact</button>
-                </div>
-              </div>
-            </li>
-          );
+          return <ClientCard client={client} />;
         })}
       </ul>
     </div>
