@@ -1,6 +1,7 @@
 import { createHomeowner } from "../../fetch-utils";
 import { ClientFormProps } from "../homeowners/homeowner.interface";
 import TextInput from "./TextInput";
+import "./Form.css";
 
 export default function ClientForm({
   clientFormData,
@@ -98,11 +99,15 @@ export default function ClientForm({
   };
 
   return (
-    <div>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        {renderInputs()}
-        <button>Submit</button>
-      </form>
+    <div className="form-container">
+      <div className="client-page-header">
+        <h1 className="new-client">New client</h1>
+        <hr />
+        <form className="client-form" onSubmit={(e) => handleSubmit(e)}>
+          {renderInputs()}
+          <button>Save client</button>
+        </form>
+      </div>
     </div>
   );
 }

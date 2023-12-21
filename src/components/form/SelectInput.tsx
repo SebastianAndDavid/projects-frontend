@@ -19,19 +19,30 @@ export default function SelectInput({ setClientID }: SelectInputProps) {
   }, []);
 
   return (
-    <div>
-      <label>
-        <select onChange={(e) => setClientID([e.target.value])}>
-          {clientArray &&
-            clientArray.map((client) => {
-              return (
-                <option value={client.id} key={client.id}>
-                  {client.first_name} {client.last_name}
-                </option>
-              );
-            })}
-        </select>
-      </label>
+    <div className="input-row">
+      <div className="input-col-1">
+        <div className="label-container">
+          <label>Client</label>
+        </div>
+      </div>
+      <div className="input-col-2">
+        <div className="clients-select-container">
+          <select onChange={(e) => setClientID([e.target.value])}>
+            {clientArray &&
+              clientArray.map((client) => {
+                return (
+                  <option value={client.id} key={client.id}>
+                    {client.first_name} {client.last_name}
+                  </option>
+                );
+              })}
+          </select>
+          <img
+            src="https://cdn-icons-png.flaticon.com/128/2722/2722987.png"
+            alt=""
+          />
+        </div>
+      </div>
     </div>
   );
 }

@@ -13,11 +13,9 @@ export default function ProjectsCreate() {
     zip_code: "",
   });
   return (
-    <div>
-      <ProjectForm
-        projectFormData={projectFormData}
-        setProjectFormData={setProjectFormData}
-      />
-    </div>
+    <ProjectForm
+      projectFormData={projectFormData}
+      setProjectFormData={setProjectFormData}
+    />
   );
 }

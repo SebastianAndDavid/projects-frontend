@@ -3,6 +3,7 @@ import { createProject } from "../../fetch-utils";
 import { ProjectFormProps } from "../projects/projects.interface";
 import SelectInput from "./SelectInput";
 import TextInput from "./TextInput";
+import "./Form.css";
 
 export default function ProjectForm({
   projectFormData,
@@ -93,12 +94,16 @@ export default function ProjectForm({
   };
 
   return (
-    <div>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <SelectInput setClientID={setClientID} />
-        {renderInputs()}
-        <button>Submit</button>
-      </form>
+    <div className="form-container">
+      <div className="project-page-header">
+        <h1 className="new-project">New project</h1>
+        <hr />
+        <form className="project-form" onSubmit={(e) => handleSubmit(e)}>
+          <SelectInput setClientID={setClientID} />
+          {renderInputs()}
+          <button>Save project</button>
+        </form>
+      </div>
     </div>
   );
 }

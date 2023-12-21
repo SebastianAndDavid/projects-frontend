@@ -6,8 +6,8 @@ import ProjectCreate from "./components/projects/ProjectCreate";
 import HomeownerDetail from "./components/homeowners/HomeownerDetail";
 import Header from "./components/header/Header";
 import ProjectsProvider from "./context/projectsContext";
-import ProjectsCreate from "./components/form/ProjectsCreate";
 import ClientCreate from "./components/form/ClientCreate";
+import ProjectPage from "./components/form/ProjectPage";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
             <Route path="/homeowner-page" element={<HomeownerList />} />
             <Route path="/project-create" element={<ProjectCreate />} />
             <Route path="/homeowner/:id" element={<HomeownerDetail />} />
-            <Route path="/project-form" element={<ProjectsCreate />} />
+            <Route path="/project-page" element={<ProjectPage />} />
             <Route path="/client-form" element={<ClientCreate />} />
           </Routes>
         </ProjectsProvider>

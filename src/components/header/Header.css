@@ -43,4 +43,15 @@
     font-size: 15px;
     font-weight: 500;
   }
+
+  .profile-icon {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+  }
+
+  .profile-icon img {
+    height: 28px;
+    width: 28px;
+  }
 }
