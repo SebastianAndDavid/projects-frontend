@@ -1,0 +1,295 @@
+@import url("https://fonts.googleapis.com/css2?family=Mountains+of+Christmas&family=Open+Sans:wght@600&family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap");
+
+.form-container {
+  font-family: "Open Sans", sans-serif;
+  max-width: 1216px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 32px;
+}
+
+.project-page-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.client-page-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.new-project {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.25;
+  font-family: "Open Sans", sans-serif;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.new-client {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.25;
+  font-family: "Open Sans", sans-serif;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.project-form {
+  width: 100%;
+}
+
+.client-form {
+  width: 100%;
+}
+
+hr {
+  box-sizing: content-box;
+  border: 0;
+  margin: 16px 0;
+  background: transparent;
+  border-bottom: 1px solid #bbb;
+  width: 100%;
+}
+
+.input-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -16px;
+  margin-right: -16px;
+  margin-bottom: 16px;
+}
+
+.input-col-1 {
+  flex: 0 0 16.6666666667%;
+  max-width: 16.6666666667%;
+  min-height: 1px;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+}
+
+.input-col-1 div {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
+.label-container {
+  margin: 0;
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.input-col-2 {
+  max-width: 82.8888%;
+  width: 975px;
+  min-height: 34px;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+}
+@media (max-width: 960px) {
+  .input-col-2 {
+    width: 720px;
+  }
+}
+
+.clients-select-container {
+  display: flex;
+  height: 100%;
+  cursor: pointer;
+  /* justify-content: space-between; */
+}
+
+select {
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  color: #6a8287;
+  width: 75%;
+  appearance: none;
+  background: transparent;
+  border-left: 1px solid #6a8287;
+  border-top: 1px solid #6a8287;
+  border-bottom: 1px solid #6a8287;
+  border-right: none;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  outline: none;
+  padding: 0;
+}
+
+.clients-input-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.clients-input-container input {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 100;
+  height: 100%;
+  width: 100%;
+  font-size: 15px;
+  border: none;
+  color: #6a8287;
+  outline: none;
+  border: 1px solid #6a8287;
+  border-radius: 8px;
+}
+
+img {
+  /* height: 19px; */
+  width: 32px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top: 1px solid #6a8287;
+  border-right: 1px solid #6a8287;
+  border-bottom: 1px solid #6a8287;
+}
+
+.client-list-container {
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
+  max-width: 1216px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 32px;
+}
+
+.client-card-row {
+  margin-bottom: 16px;
+  padding: 8px;
+  background-color: rgb(243, 243, 243);
+  border-top: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+}
+
+.cc-contents {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cc-col-1 {
+  display: flex;
+  align-items: center;
+}
+
+.cc-col-1 strong {
+  margin-left: 10px;
+}
+
+.clients-header-row-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 1216px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 32px;
+}
+
+.client-header-h1 {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.25;
+  font-family: "Open Sans", sans-serif;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.project-list-page {
+}
+
+.pp-list-main {
+  max-width: 1216px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 32px;
+}
+
+.pp-list-h1 {
+  display: flex;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.25;
+  font-family: "Open Sans", sans-serif;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.pp-action-bar {
+  background-color: rgb(243, 243, 243);
+}
+
+.pp-actions-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1216px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 16px;
+}
+
+.pp-list-contents-header {
+  display: flex;
+  justify-content: flex-start;
+  background-color: rgb(243, 243, 243);
+  border-top: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+}
+
+.pp-list-contents-header-text {
+  margin-left: 34px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  text-decoration: underline;
+}
+
+.project-card-header {
+  display: flex;
+  justify-content: flex-start;
+  background-color: rgb(243, 243, 243);
+  border-bottom: 1px solid #bbb;
+}
+
+.project-card-client {
+  margin-left: 34px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  text-decoration: underline;
+}
+
+.project-card-details-container {
+  display: flex;
+  border-bottom: 1px solid #bbb;
+  color: black;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.project-card-details-container:hover {
+  background-color: #94f3d3;
+}
+
+.project-card-details {
+  margin-left: 34px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+}

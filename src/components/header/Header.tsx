@@ -12,12 +12,12 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link to="/homeowner-page" className="primary-nav-item">
+            <Link to="/client-page" className="primary-nav-item">
               Clients
             </Link>
           </li>
           <li>
-            <Link to="/project-create" className="primary-nav-item">
+            <Link to="/project-page" className="primary-nav-item">
               Projects
             </Link>
           </li>
@@ -25,6 +25,12 @@ export default function Header() {
         <ul>
           <li>
             <Link to="/settings">Settings</Link>
+          </li>
+          <li className="profile-icon">
+            <img
+              src="https://cdn-icons-png.flaticon.com/128/7710/7710521.png"
+              alt=""
+            />
           </li>
           <li>
             <Link>Betsy</Link>

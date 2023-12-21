@@ -15,7 +15,6 @@ const getAllProjectsByHomeownerId = async (id: number) => {
     `http://localhost:8000/projects/homeowners/${id}`
   );
   const result = await response.json();
-  console.log("result", result);
   return result;
 };
 
@@ -39,12 +38,12 @@ const updateHomeowner = async (id: number, data: object) => {
     },
     body: JSON.stringify(data),
   });
+  console.log("response", response);
   const result = await response.json();
   return result;
 };
 
 const createProject = async (data: object) => {
-  console.log("data", data);
   const response = await fetch("http://localhost:8000/projects", {
     method: "Post",
     headers: {
