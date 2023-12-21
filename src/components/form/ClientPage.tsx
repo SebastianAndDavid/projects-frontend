@@ -1,22 +1,11 @@
-import { useEffect, useState } from "react";
-import { getAllHomeowners } from "../../fetch-utils";
-import { HomeownerSelect } from "../homeowners/homeowner.interface";
 import "./Form.css";
 import { useNavigate } from "react-router-dom";
 import ClientCard from "./ClientCard";
+import { useClient } from "../../context/clientContext";
 
 export default function ClientPage() {
-  const [clientsArray, setClientsArray] = useState<HomeownerSelect[]>([]);
-
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const handleFetchClients = async () => {
-      const data = await getAllHomeowners();
-      setClientsArray(data);
-    };
-    handleFetchClients();
-  }, []);
+  const [clients] = useClient();
 
   return (
     <div>
@@ -34,7 +23,7 @@ export default function ClientPage() {
         </div>
       </div>
       <ul className="client-list-container">
-        {clientsArray.map((client) => {
+        {clients.map((client) => {
           return <ClientCard client={client} />;
         })}
       </ul>

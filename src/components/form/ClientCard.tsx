@@ -1,7 +1,6 @@
 import { ClientCardProps } from "../homeowners/homeowner.interface";
 
 export default function ClientCard({ client }: ClientCardProps) {
-  console.log("client", client);
   return (
     <li className="client-card-row">
       <div className="cc-contents">
