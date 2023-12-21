@@ -12,7 +12,7 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link to="/client-form" className="primary-nav-item">
+            <Link to="/client-page" className="primary-nav-item">
               Clients
             </Link>
           </li>

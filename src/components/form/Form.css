@@ -154,3 +154,29 @@ img {
   border-right: 1px solid #6a8287;
   border-bottom: 1px solid #6a8287;
 }
+
+.client-list-container {
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
+  max-width: 768px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 32px;
+}
+
+.client-card-row {
+  margin-bottom: 16px;
+  padding: 8px;
+  background-color: rgb(243, 243, 243);
+  border-top: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+}
+
+.cc-contents {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
