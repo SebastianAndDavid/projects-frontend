@@ -1,15 +1,33 @@
-import { useState } from "react";
-import { createProject } from "../../fetch-utils";
+import { useEffect, useState } from "react";
+import {
+  createProject,
+  getProjectByID,
+  updateProject,
+} from "../../fetch-utils";
 import { ProjectFormProps } from "../projects/projects.interface";
 import SelectInput from "./SelectInput";
 import TextInput from "./TextInput";
 import "./Form.css";
+import { useNavigate, useParams } from "react-router-dom";
+import PhaseList from "../projects/PhaseList";
 
 export default function ProjectForm({
   projectFormData,
   setProjectFormData,
 }: ProjectFormProps) {
   const [clientID, setClientID] = useState<string[]>([]);
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleFetchProjectByID = async () => {
+      if (id) {
+        const response = await getProjectByID(id);
+        setProjectFormData(response);
+      }
+    };
+    handleFetchProjectByID();
+  }, []);
 
   const handleFormChange = (key: string) => (value: string) => {
     setProjectFormData((prev) => ({
@@ -90,17 +108,23 @@ export default function ProjectForm({
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await createProject({ projectFormData, clientID });
+    if (id) {
+      await updateProject(Number(id), projectFormData);
+    } else {
+      await createProject({ projectFormData, clientID });
+    }
+    navigate("/project-page");
   };
 
   return (
     <div className="form-container">
       <div className="project-page-header">
-        <h1 className="new-project">New project</h1>
+        <h1 className="new-project">{id ? "Edit Project" : "New Project"}</h1>
         <hr />
         <form className="project-form" onSubmit={(e) => handleSubmit(e)}>
-          <SelectInput setClientID={setClientID} />
+          {!id && <SelectInput setClientID={setClientID} />}
           {renderInputs()}
+          <PhaseList />
           <button>Save project</button>
         </form>
       </div>

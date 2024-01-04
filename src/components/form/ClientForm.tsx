@@ -125,7 +125,9 @@ export default function ClientForm({
   return (
     <div className="form-container">
       <div className="client-page-header">
-        <h1 className="new-client">New client</h1>
+        <h1 className="new-client">
+          {id ? <div>Edit client</div> : <div>New client</div>}
+        </h1>
         <hr />
         <form className="client-form" onSubmit={(e) => handleSubmit(e)}>
           {renderInputs()}

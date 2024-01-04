@@ -259,7 +259,6 @@ img {
   margin-left: 34px;
   padding-top: 6px;
   padding-bottom: 6px;
-  text-decoration: underline;
 }
 
 .project-card-header {
@@ -274,6 +273,7 @@ img {
   padding-top: 6px;
   padding-bottom: 6px;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .project-card-details-container {
