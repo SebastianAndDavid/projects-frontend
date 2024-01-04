@@ -25,6 +25,7 @@ function App() {
               <Route path="/project-create" element={<ProjectCreate />} />
               <Route path="/homeowner/:id" element={<HomeownerDetail />} />
               <Route path="/project-page" element={<ProjectPage />} />
+
               <Route path="/project-create-page" element={<ProjectsCreate />} />
               <Route
                 path="/project-create-page/:id"

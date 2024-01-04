@@ -80,9 +80,7 @@ const updateProject = async (id: number, data: object) => {
 
 const getAllReadOnlyPhases = async () => {
   const response = await fetch("http://localhost:8000/seedPhases");
-  console.log("response", response);
   const result = await response.json();
-  console.log("result", result);
   return result;
 };
 

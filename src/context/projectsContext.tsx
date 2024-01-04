@@ -1,10 +1,10 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { getAllProjects } from "../fetch-utils";
-import { ProjectsContextType } from "./projectsContext.interface";
+import { PhasesReadOnlyContextType } from "./projectsContext.interface";
+import { getAllReadOnlyPhases } from "../fetch-utils";
 
-const ProjectsContext = createContext<ProjectsContextType>({
-  projects: [],
-  setProjects: () => {},
+const ProjectsContext = createContext<PhasesReadOnlyContextType>({
+  phasesArrayReadOnly: [],
+  setPhasesArrayReadOnly: () => {},
 });
 
 export default function ProjectsProvider({
@@ -12,19 +12,19 @@ export default function ProjectsProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [projects, setProjects] = useState([]);
+  const [phasesArrayReadOnly, setPhasesArrayReadOnly] = useState([]);
 
+  const handleFetchAllPhasesReadOnly = async () => {
+    const data = await getAllReadOnlyPhases();
+    if (data) setPhasesArrayReadOnly(data);
+  };
   useEffect(() => {
-    const handleGetAllProjects = async () => {
-      const response = await getAllProjects();
-      setProjects(response);
-    };
-    handleGetAllProjects();
+    handleFetchAllPhasesReadOnly();
   }, []);
 
   const stateAndSetters = {
-    projects,
-    setProjects,
+    phasesArrayReadOnly,
+    setPhasesArrayReadOnly,
   };
 
   return (
@@ -34,7 +34,8 @@ export default function ProjectsProvider({
   );
 }
 
-export function useProjects() {
-  const { projects, setProjects } = useContext(ProjectsContext);
-  return [projects, setProjects] as const;
+export function usePhasesReadOnly() {
+  const { phasesArrayReadOnly, setPhasesArrayReadOnly } =
+    useContext(ProjectsContext);
+  return [phasesArrayReadOnly, setPhasesArrayReadOnly] as const;
 }

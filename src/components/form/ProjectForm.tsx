@@ -9,7 +9,7 @@ import SelectInput from "./SelectInput";
 import TextInput from "./TextInput";
 import "./Form.css";
 import { useNavigate, useParams } from "react-router-dom";
-import PhaseList from "../projects/PhaseList";
+import PhaseList from "./phases/PhaseList";
 
 export default function ProjectForm({
   projectFormData,
