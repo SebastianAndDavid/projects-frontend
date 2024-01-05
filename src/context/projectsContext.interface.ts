@@ -4,6 +4,12 @@ export interface ProjectsContextType {
 }
 
 export interface PhasesReadOnlyContextType {
-  phasesArrayReadOnly: object[];
-  setPhasesArrayReadOnly: React.Dispatch<React.SetStateAction<never[]>>;
+  phasesArrayReadOnly: PhaseReadOnlyArrayType[];
+  setPhasesArrayReadOnly: React.Dispatch<
+    React.SetStateAction<PhaseReadOnlyArrayType[]>
+  >;
+}
+
+export interface PhaseReadOnlyArrayType {
+  id: number;
 }

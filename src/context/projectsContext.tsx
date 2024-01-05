@@ -1,5 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { PhasesReadOnlyContextType } from "./projectsContext.interface";
+import {
+  PhaseReadOnlyArrayType,
+  PhasesReadOnlyContextType,
+} from "./projectsContext.interface";
 import { getAllReadOnlyPhases } from "../fetch-utils";
 
 const ProjectsContext = createContext<PhasesReadOnlyContextType>({
@@ -12,7 +15,9 @@ export default function ProjectsProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [phasesArrayReadOnly, setPhasesArrayReadOnly] = useState([]);
+  const [phasesArrayReadOnly, setPhasesArrayReadOnly] = useState<
+    PhaseReadOnlyArrayType[]
+  >([]);
 
   const handleFetchAllPhasesReadOnly = async () => {
     const data = await getAllReadOnlyPhases();
