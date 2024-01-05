@@ -10,6 +10,12 @@ const getAllHomeowners = async () => {
   return data;
 };
 
+const getProjectByID = async (id: string) => {
+  const response = await fetch(`http://localhost:8000/projects/${id}`);
+  const result = response.json();
+  return result;
+};
+
 const getAllProjectsByHomeownerId = async (id: number) => {
   const response = await fetch(
     `http://localhost:8000/projects/homeowners/${id}`
@@ -38,7 +44,6 @@ const updateHomeowner = async (id: number, data: object) => {
     },
     body: JSON.stringify(data),
   });
-  console.log("response", response);
   const result = await response.json();
   return result;
 };
@@ -61,6 +66,24 @@ const getHomeownerById = async (id: string) => {
   return result;
 };
 
+const updateProject = async (id: number, data: object) => {
+  const response = await fetch(`http://localhost:8000/projects/${id}`, {
+    method: "Put",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  const result = await response.json();
+  return result;
+};
+
+const getAllReadOnlyPhases = async () => {
+  const response = await fetch("http://localhost:8000/seedPhases");
+  const result = await response.json();
+  return result;
+};
+
 export {
   getAllProjects,
   getAllHomeowners,
@@ -69,4 +92,7 @@ export {
   createProject,
   getAllProjectsByHomeownerId,
   getHomeownerById,
+  updateProject,
+  getProjectByID,
+  getAllReadOnlyPhases,
 };
