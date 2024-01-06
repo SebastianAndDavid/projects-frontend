@@ -4,8 +4,6 @@ import PhaseListItem from "./PhaseListItem";
 export default function PhaseList() {
   const [phasesArrayReadOnly] = usePhasesReadOnly();
 
-  console.log("first", phasesArrayReadOnly);
-
   return (
     <div>
       <div>
@@ -13,7 +11,7 @@ export default function PhaseList() {
       </div>
       <div>
         {phasesArrayReadOnly.map((phase) => {
-          return <PhaseListItem key={phase.id} />;
+          return <PhaseListItem key={phase.id} phase={phase} />;
         })}
       </div>
     </div>

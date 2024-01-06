@@ -12,4 +12,6 @@ export interface PhasesReadOnlyContextType {
 
 export interface PhaseReadOnlyArrayType {
   id: number;
+  name: string;
+  MilestonesReadOnly: [];
 }
