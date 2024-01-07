@@ -90,6 +90,14 @@ const getAllReadOnlyTasksByMilestoneId = async () => {
   return result;
 };
 
+const getAllReadOnlyMilestones = async () => {
+  const response = await fetch(
+    "http://localhost:8000/seedPhases/all/milestones"
+  );
+  const result = await response.json();
+  return result;
+};
+
 export {
   getAllProjects,
   getAllHomeowners,
@@ -102,4 +110,5 @@ export {
   getProjectByID,
   getAllReadOnlyPhases,
   getAllReadOnlyTasksByMilestoneId,
+  getAllReadOnlyMilestones,
 };

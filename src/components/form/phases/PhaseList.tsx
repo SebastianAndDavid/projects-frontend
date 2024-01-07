@@ -1,10 +1,15 @@
-import { usePhasesReadOnly } from "../../../context/projectsContext";
+import {
+  useMilestonesReadOnly,
+  usePhasesReadOnly,
+} from "../../../context/projectsContext";
 import PhaseListItem from "./PhaseListItem";
 import "./PhaseList.css";
 
 export default function PhaseList() {
   const [phasesArrayReadOnly] = usePhasesReadOnly();
-  console.log(phasesArrayReadOnly);
+  const [milestonesArrayReadOnly] = useMilestonesReadOnly();
+  console.log("mile", milestonesArrayReadOnly);
+
   return (
     <div className="phase-table">
       <div className="phase-table-header">
