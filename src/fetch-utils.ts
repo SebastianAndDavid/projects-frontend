@@ -84,6 +84,28 @@ const getAllReadOnlyPhases = async () => {
   return result;
 };
 
+const getAllReadOnlyTasksByMilestoneId = async (id: number) => {
+  const response = await fetch(`http://localhost:8000/seedPhases/${id}`);
+  const result = await response.json();
+  return result;
+};
+
+const getAllReadOnlyMilestones = async () => {
+  const response = await fetch(
+    "http://localhost:8000/seedPhases/all/milestones"
+  );
+  const result = await response.json();
+  return result;
+};
+
+const getMilestoneByPhaseId = async (id: number) => {
+  const response = await fetch(
+    `http://localhost:8000/seedPhases/milestone/${id}`
+  );
+  const result = await response.json();
+  return result;
+};
+
 export {
   getAllProjects,
   getAllHomeowners,
@@ -95,4 +117,7 @@ export {
   updateProject,
   getProjectByID,
   getAllReadOnlyPhases,
+  getAllReadOnlyTasksByMilestoneId,
+  getAllReadOnlyMilestones,
+  getMilestoneByPhaseId,
 };

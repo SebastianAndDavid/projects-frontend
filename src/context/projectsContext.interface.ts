@@ -8,8 +8,26 @@ export interface PhasesReadOnlyContextType {
   setPhasesArrayReadOnly: React.Dispatch<
     React.SetStateAction<PhaseReadOnlyArrayType[]>
   >;
+  milestonesArrayReadOnly: MilestonesReadOnlyArrayType[];
+  setMilestonesArrayReadOnly: React.Dispatch<
+    React.SetStateAction<MilestonesReadOnlyArrayType[]>
+  >;
 }
 
 export interface PhaseReadOnlyArrayType {
   id: number;
+  name: string;
+  MilestonesReadOnly: [];
+}
+
+export interface MilestonesReadOnlyArrayType {
+  id: number;
+  name: string;
+  phaseId: number;
+}
+
+export interface TasksReadOnlyArrayType {
+  id: number;
+  name: string;
+  milestoneId: number;
 }

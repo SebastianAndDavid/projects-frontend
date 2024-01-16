@@ -1,0 +1,40 @@
+.phase-table-header {
+  display: flex;
+  border-top: 1px solid #bbb;
+  background-color: #e0e0e0;
+}
+
+.phase-table-header h3 {
+  margin: 0;
+  padding: 8px;
+}
+
+.phase-table-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.phase-table-row-item {
+  display: flex;
+  padding: 8px;
+  width: 1200px;
+  border-bottom: 1px solid #bbb;
+}
+
+.phase-table-row-item-name {
+  padding-right: 32px;
+}
+
+.milestones {
+  display: flex;
+  align-items: center;
+  font-size: small;
+  padding-right: 16px;
+}
+
+.tasks {
+  display: flex;
+  align-items: center;
+  font-size: small;
+}
