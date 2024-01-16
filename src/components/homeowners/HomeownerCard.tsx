@@ -4,7 +4,7 @@ import "./Homeowner.css";
 import HomeownersCreate from "./HomeownersCreate";
 import { getAllProjectsByHomeownerId } from "../../fetch-utils";
 import { ProjectSelect } from "../projects/projects.interface";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 export default function HomeownerCard({ owner }: HomeownerSelectProps) {
   const [didClickEdit, setDidClickEdit] = useState(false);

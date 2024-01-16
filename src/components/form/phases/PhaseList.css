@@ -20,6 +20,11 @@
   padding: 8px;
   width: 1200px;
   border-bottom: 1px solid #bbb;
+  cursor: pointer;
+}
+
+.phase-table-row-item:hover {
+  background-color: lightgray;
 }
 
 .phase-table-row-item-name {

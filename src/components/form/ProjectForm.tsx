@@ -8,7 +8,7 @@ import { ProjectFormProps } from "../projects/projects.interface";
 import SelectInput from "./SelectInput";
 import TextInput from "./TextInput";
 import "./Form.css";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router";
 import PhaseList from "./phases/PhaseList";
 
 export default function ProjectForm({
