@@ -84,8 +84,8 @@ const getAllReadOnlyPhases = async () => {
   return result;
 };
 
-const getAllReadOnlyTasksByMilestoneId = async () => {
-  const response = await fetch("http://localhost:8000/seedPhases/1");
+const getAllReadOnlyTasksByMilestoneId = async (id: number) => {
+  const response = await fetch(`http://localhost:8000/seedPhases/${id}`);
   const result = await response.json();
   return result;
 };
@@ -98,8 +98,10 @@ const getAllReadOnlyMilestones = async () => {
   return result;
 };
 
-const getMilestoneByPhaseId = async () => {
-  const response = await fetch("http://localhost:8000/seedPhases/milestone/1");
+const getMilestoneByPhaseId = async (id: number) => {
+  const response = await fetch(
+    `http://localhost:8000/seedPhases/milestone/${id}`
+  );
   const result = await response.json();
   return result;
 };

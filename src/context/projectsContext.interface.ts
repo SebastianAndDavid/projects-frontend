@@ -25,3 +25,9 @@ export interface MilestonesReadOnlyArrayType {
   name: string;
   phaseId: number;
 }
+
+export interface TasksReadOnlyArrayType {
+  id: number;
+  name: string;
+  milestoneId: number;
+}
