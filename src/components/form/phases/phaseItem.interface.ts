@@ -27,4 +27,5 @@ export interface TaskItemProps {
       name: string;
     }>
   >;
+  renderInputs: () => JSX.Element[];
 }
