@@ -43,3 +43,11 @@
   align-items: center;
   font-size: small;
 }
+
+.milestone-body-container {
+  padding: 16px;
+}
+
+.task-input input {
+  all: initial;
+}

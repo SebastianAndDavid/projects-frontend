@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { TaskItemProps } from "./phaseItem.interface";
-import TextInput from "../TextInput";
+import TaskTextInput from "./TaskTextInput";
 
 export default function TaskItem({ task }: TaskItemProps) {
   const [taskFormData, setTaskFormData] = useState({
@@ -22,9 +22,8 @@ export default function TaskItem({ task }: TaskItemProps) {
     return Object.entries(taskFormData).map(([key, value]) => {
       if (key == "name")
         return (
-          <TextInput
+          <TaskTextInput
             key={key}
-            label="Name"
             value={value}
             onChange={handleFormChange(key)}
           />
@@ -32,5 +31,5 @@ export default function TaskItem({ task }: TaskItemProps) {
     });
   };
 
-  return <div>{renderInputs()}</div>;
+  return <div className="task-input">{renderInputs()}</div>;
 }
