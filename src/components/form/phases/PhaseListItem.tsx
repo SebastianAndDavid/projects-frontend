@@ -16,7 +16,6 @@ export default function PhaseListItem({ phase }: PhaseListItemProps) {
 
   const handleFetchMilestoneByPhaseId = async () => {
     const data = await getMilestoneByPhaseId(phase.id);
-    console.log("data 1", data);
     if (data) {
       setMilestoneByPhaseId(data.flat());
       fetchTasks();
