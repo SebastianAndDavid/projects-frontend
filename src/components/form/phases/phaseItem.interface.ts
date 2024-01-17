@@ -19,13 +19,4 @@ export interface TaskReadOnly {
 
 export interface TaskItemProps {
   task: TaskReadOnly;
-  taskFormData: {
-    name: string;
-  };
-  setTaskFormData: React.Dispatch<
-    React.SetStateAction<{
-      name: string;
-    }>
-  >;
-  renderInputs: () => JSX.Element[];
 }
