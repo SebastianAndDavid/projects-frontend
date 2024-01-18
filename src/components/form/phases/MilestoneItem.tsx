@@ -7,6 +7,7 @@ export default function MilestoneItem({ milestone }: MilestoneItemProps) {
   const [tasksReadOnlyArray, setTasksReadOnlyArray] = useState<TaskReadOnly[]>(
     []
   );
+  // const [isClicked, setIsClicked] = useState(false);
 
   const fetchTasks = async () => {
     const data = await getAllReadOnlyTasksByMilestoneId(milestone.id);
@@ -19,13 +20,25 @@ export default function MilestoneItem({ milestone }: MilestoneItemProps) {
     fetchTasks();
   }, []);
 
+  console.log("task array", tasksReadOnlyArray);
+
   return (
     <div className="milestone-body-container">
-      <div>{milestone.name}</div>
+      <div className="milestone-name-header">{milestone.name}</div>
       <div className="task-input-container">
-        {tasksReadOnlyArray.map((task) => {
-          return <TaskItem key={task.id} task={task} />;
+        {tasksReadOnlyArray.map((task, i) => {
+          return <TaskItem key={i} task={task} />;
         })}
+        <div
+          onClick={() =>
+            setTasksReadOnlyArray([
+              ...tasksReadOnlyArray,
+              { name: "", milestoneId: milestone.id },
+            ])
+          }
+        >
+          Add a Task
+        </div>
       </div>
     </div>
   );

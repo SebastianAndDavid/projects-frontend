@@ -50,7 +50,7 @@ export default function PhaseListItem({ phase }: PhaseListItemProps) {
       }
     >
       <div className="phase-table-row-col-1">
-        <div onClick={() => setIsClicked(!isClicked)}>
+        <div className="row-edit-btn" onClick={() => setIsClicked(!isClicked)}>
           {!isClicked ? "Edit" : "Submit"}
         </div>
         <div className="phase-table-row-item-name">{phase.name}</div>

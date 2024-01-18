@@ -21,7 +21,7 @@
   padding-bottom: 8px;
   width: 1216px;
   border-bottom: 1px solid #bbb;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .phase-table-row-item-clicked {
@@ -31,7 +31,7 @@
   padding-bottom: 8px;
   width: 1216px;
   border-bottom: 1px solid #bbb;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .phase-table-row-item:hover {
@@ -55,26 +55,51 @@
   font-size: small;
 }
 
+.row-edit-btn {
+  color: black;
+}
+
 .phase-table-row-col-2 {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   width: 975px;
-  height: 300px;
+  /* height: 300px; */
 }
 
 .milestone-body-container {
   width: 100%;
   text-align: left;
+  padding-right: 16px;
 }
 
-.task-input input {
-  all: initial;
-  width: 100%;
-}
-
-.task-input input::before {
-  width: 100%;
-  content: "🎁";
+.milestone-name-header {
+  font-size: 20px;
   color: black;
-  margin: 5px;
+  border-bottom: 1px solid #bbb;
+  width: 80%;
+}
+
+.task-input {
+  padding-top: 8px;
+}
+
+.task-input div {
+  width: 80%;
+  cursor: pointer;
+}
+
+.task-input textarea {
+  /* all: initial; */
+  /* width: 100%; */
+  width: 80%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 100;
+  color: #6a8287;
+  outline: none;
+  resize: vertical;
+  border-radius: 8px;
+  /* padding: 0; */
+  /* border: none; */
 }

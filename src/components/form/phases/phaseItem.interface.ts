@@ -12,7 +12,7 @@ export interface MilestoneItemProps {
 }
 
 export interface TaskReadOnly {
-  id: number;
+  id?: number;
   name: string;
   milestoneId: number;
 }

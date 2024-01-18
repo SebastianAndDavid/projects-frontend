@@ -124,8 +124,8 @@ export default function ProjectForm({
         <form className="project-form" onSubmit={(e) => handleSubmit(e)}>
           {!id && <SelectInput setClientID={setClientID} />}
           {renderInputs()}
-          <PhaseList />
           <button>Save project</button>
+          <PhaseList />
         </form>
       </div>
     </div>

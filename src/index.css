@@ -30,6 +30,7 @@ body {
   width: 100%;
   /* min-height: 100vh; */
   color: #6a8287;
+  overflow-y: scroll;
 }
 
 h1 {

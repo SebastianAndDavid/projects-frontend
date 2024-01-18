@@ -31,5 +31,5 @@ export default function TaskItem({ task }: TaskItemProps) {
     });
   };
 
-  return <div className="task-input">{renderInputs()}</div>;
+  return <>{renderInputs()}</>;
 }

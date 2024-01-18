@@ -1,14 +1,19 @@
+import { useState } from "react";
+
 interface TaskTextInputProps {
   value: string;
   onChange: (value: string) => void;
 }
 
 export default function TaskTextInput({ value, onChange }: TaskTextInputProps) {
+  const [inputIsClicked, setInputIsClicked] = useState(false);
   return (
-    <input
-      type="text"
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-    />
+    <div className="task-input" onClick={() => setInputIsClicked(true)}>
+      {!inputIsClicked ? (
+        <div>{value == "" ? "New Task" : value}</div>
+      ) : (
+        <textarea value={value} onChange={(e) => onChange(e.target.value)} />
+      )}
+    </div>
   );
 }
