@@ -44,7 +44,11 @@ export default function PhaseListItem({ phase }: PhaseListItemProps) {
   }, [milestoneByPhaseId]);
 
   return (
-    <div className="phase-table-row-item">
+    <div
+      className={
+        !isClicked ? "phase-table-row-item" : "phase-table-row-item-clicked"
+      }
+    >
       <div className="phase-table-row-col-1">
         <div onClick={() => setIsClicked(!isClicked)}>
           {!isClicked ? "Edit" : "Submit"}
@@ -60,9 +64,11 @@ export default function PhaseListItem({ phase }: PhaseListItemProps) {
         </>
       ) : (
         <>
-          {milestoneByPhaseId.map((milestone) => {
-            return <MilestoneItem key={milestone.id} milestone={milestone} />;
-          })}
+          <div className="phase-table-row-col-2">
+            {milestoneByPhaseId.map((milestone) => {
+              return <MilestoneItem key={milestone.id} milestone={milestone} />;
+            })}
+          </div>
         </>
       )}
     </div>

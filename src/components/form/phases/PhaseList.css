@@ -17,8 +17,19 @@
 
 .phase-table-row-item {
   display: flex;
-  padding: 8px;
-  width: 1200px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 1216px;
+  border-bottom: 1px solid #bbb;
+  cursor: pointer;
+}
+
+.phase-table-row-item-clicked {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 1216px;
   border-bottom: 1px solid #bbb;
   cursor: pointer;
 }
@@ -44,10 +55,26 @@
   font-size: small;
 }
 
+.phase-table-row-col-2 {
+  display: flex;
+  justify-content: space-evenly;
+  width: 975px;
+  height: 300px;
+}
+
 .milestone-body-container {
-  padding: 16px;
+  width: 100%;
+  text-align: left;
 }
 
 .task-input input {
   all: initial;
+  width: 100%;
+}
+
+.task-input input::before {
+  width: 100%;
+  content: "🎁";
+  color: black;
+  margin: 5px;
 }
