@@ -15,6 +15,7 @@ export default function PhaseList() {
           return <PhaseListItem key={phase.id} phase={phase} />;
         })}
       </div>
+      <button>Submit</button>
     </div>
   );
 }
